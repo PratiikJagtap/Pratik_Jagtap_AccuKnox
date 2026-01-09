@@ -1,22 +1,18 @@
 import requests
 
-url = "https://openlibrary.org/search.json?q=python"  # This is an API endpoint
-# This is the Open Library search API.
-# q=python means we are searching for books related to Python.
+url = "https://openlibrary.org/search.json?q=python"
 
-
-# It fetches book data related to Python from an online API and returns a clean list of books with title, author, and publication year.
 
 def get_books_from_api(limit=15):
 
-    response = requests.get(url, timeout=10) # sends the get request to API
-    response.raise_for_status() # if api fails this raise an error
+    response = requests.get(url, timeout=10)
+    response.raise_for_status() 
 
-    raw_data = response.json().get("docs", []) # converting API response into python dict. here we r getting docs in form of list
+    raw_data = response.json().get("docs", []) 
     
-    books = [] # this is storing clear data 
+    books = []
 
-    for item in raw_data[:limit]: # looping through each item in data
+    for item in raw_data[:limit]:
         title = item.get("title")
         authors = item.get("author_name", [])
         year = item.get("first_publish_year")

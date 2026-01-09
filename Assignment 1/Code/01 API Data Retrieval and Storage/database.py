@@ -1,6 +1,6 @@
-import sqlite3  # sqlite3 is Python’s built-in library for working with SQLite databases.
+import sqlite3 
 
-database_file = "library.db"  # this will create database in sqlite3
+database_file = "library.db" 
 
 
 def open_connection():
@@ -8,7 +8,7 @@ def open_connection():
 
 def database_setup():
     conn = open_connection()
-    cursor = conn.cursor() # Cursor is used to execute SQL commands
+    cursor = conn.cursor()
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS library_books (

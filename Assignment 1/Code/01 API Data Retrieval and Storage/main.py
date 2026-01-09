@@ -4,15 +4,15 @@ from database import database_setup, save_books, read_books
 
 def execute_pipeline():
 
-    database_setup() # calling database setup like all methods to do database operations
+    database_setup()
 
-    books = get_books_from_api() # getting data from api which has not any api key open for all
+    books = get_books_from_api()
 
-    save_books(books) # inserted books data into table
+    save_books(books)
 
-    stored_books = read_books() # read and print data 
+    stored_books = read_books()
     for book in stored_books:
         print(book)
 
-if __name__ == "__main__": # this means Run execute_pipeline() only when the main file is run, not when it’s imported
+if __name__ == "__main__":
     execute_pipeline()
